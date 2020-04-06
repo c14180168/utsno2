@@ -1,0 +1,31 @@
+!<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+
+<body>
+    <div data-role="page" id="1" data-theme="b">
+        <div data-role="header">
+            <h1>Page 1</h1>
+        </div>
+        <div data-role="content">
+            <div data-role="fieldcontain" data-type="horizontal">
+                <form>           
+                    <label for="pinjam">Pinjaman:</label>
+                    <input type="number" data-clear-btn="true" id="pinjam" value="">             
+                    <label for="waktu">Waktu Pinjam:</label>
+                    <input type="number" data-clear-btn="true" pattern="[0-9]*" id="waktu" value="">
+                </form>
+                <form>    
+                    <input type="button" value="Input" id="inp" data-icon="check">
+                    <label for="totp">Total Pengembalian:</label>
+                    <input type="text" id="totp" value="">             
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
