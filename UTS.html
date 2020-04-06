@@ -4,11 +4,56 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
+<script>
+    $(document).ready(function(){
+        var count = 0;
 
+            $("#inp").click(function(){
+                var a = parseInt($("#pinjam").val());
+                var b = parseInt($("#waktu").val());
+                if(b <= 6){
+                    var c = a + ((a*2*6)/100)
+                }
+                else if(b>=7 && b<=12){
+                    var c = a + ((a*15*6)/1000)
+                }
+                else{
+                    var c = a + ((a*1*6)/100)
+                }
+                var d = c / b;
+                $("#liv").append(count);
+                count= count+1;
+                $("#totp").val(c);
+                $("#table").find('tbody')
+                    .append($('<tr>')
+                        .append($('<td>')
+                            .append($('#pinjam').val())
+                    )
+                    .append($('<td>')
+                        .append($('#waktu').val())
+                    )
+                    .append($('<td>')
+                        .append(c)
+                    )
+                    .append($('<td>')
+                        .append(d)
+                    )
+                );
+            });
+        });
+
+
+        $(document).on("pagebeforecreate",function(event){
+            alert("Loading page..... otw")
+        }); 
+        $(document).on( "pageinit", "#p2", function( event ) {
+            alert( "Entering Halaman Cicilan" );
+        });
+</script>
 <body>
     <div data-role="page" id="p1" data-theme="b">
         <div data-role="header">
-            <h1>Page 1</h1>
+            <h1>Koperasi Simulator</h1>
         </div>
         <div data-role="content">
             <div data-role="fieldcontain" data-type="horizontal">
@@ -19,23 +64,26 @@
                     <input type="number" data-clear-btn="true" pattern="[0-9]*" id="waktu" value="">
                 </form>
                 <form>    
-                    <input type="button" value="Input" id="inp" data-icon="check">
+                    <input type="button" data-inline="true" value="Input" id="inp" data-icon="check">
                     <label for="totp">Total Pengembalian:</label>
-                    <input type="text" id="totp" value="">        
+                    <input type="text" id="totp" value="">
+                </form><br>
+                <form>
+                    <div>
+                        <a href="#p2" data-role="button" data-transition="slidedown">Halaman Cicilan</a>
+                    </div>
+                    <ul data-role="listview" id="liv" datai-inset="true">
+                        
+                    </ul>
                 </form>
-                <ul data-role="listview">
-
-                </ul>
-                <div>
-                    <a href="#p2" data-role="button" data-transition="slidedown">To Page 2</a>
-                </div>
+                
             </div>
         </div>
     </div>
 
     <div data-role="page" id="p2" data-theme="b">
         <div data-role="header">
-            <h1>Page 1</h1>
+            <h1>Halaman Cicilan</h1>
         </div>
         <div data-role="content">
             <table data-role="table" class="ui-responsive" id="table">
@@ -43,14 +91,14 @@
                   <tr>
                     <th>Pinjaman</th>
                     <th>Waktu pinjam</th>
-                    <th>Penembalian</th>
+                    <th>Total Pengembalian</th>
+                    <th>Cicilan perbulan</th>
                   </tr>
                 </thead>
                 <tbody>
-                    
                 </tbody>
               </table>
-            <a href="#p1" data-role="button" data-type="horizontal" data-transition="slidedown">To Page 1</a>
+            <a href="#p1" data-role="button" data-type="horizontal" data-transition="slidedown">Back</a>
         </div>
     </div>
 
