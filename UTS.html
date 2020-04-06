@@ -3,11 +3,10 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
 </head>
 
 <body>
-    <div data-role="page" id="1" data-theme="b">
+    <div data-role="page" id="p1" data-theme="b">
         <div data-role="header">
             <h1>Page 1</h1>
         </div>
@@ -22,10 +21,38 @@
                 <form>    
                     <input type="button" value="Input" id="inp" data-icon="check">
                     <label for="totp">Total Pengembalian:</label>
-                    <input type="text" id="totp" value="">             
+                    <input type="text" id="totp" value="">        
                 </form>
+                <ul data-role="listview">
+
+                </ul>
+                <div>
+                    <a href="#p2" data-role="button" data-transition="slidedown">To Page 2</a>
+                </div>
             </div>
         </div>
     </div>
+
+    <div data-role="page" id="p2" data-theme="b">
+        <div data-role="header">
+            <h1>Page 1</h1>
+        </div>
+        <div data-role="content">
+            <table data-role="table" class="ui-responsive" id="table">
+                <thead>
+                  <tr>
+                    <th>Pinjaman</th>
+                    <th>Waktu pinjam</th>
+                    <th>Penembalian</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+              </table>
+            <a href="#p1" data-role="button" data-type="horizontal" data-transition="slidedown">To Page 1</a>
+        </div>
+    </div>
+
 </body>
 </html>
